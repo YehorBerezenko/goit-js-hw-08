@@ -100,13 +100,9 @@ gallaryElem.addEventListener('click', (e) => {
   if (!imgElem) return;
   const largeImgLink = imgElem.dataset.source;
   const instance = basicLightbox.create(`
-    <img src="${largeImgLink}" width="800" height="600">
-`
-  
+    <img src="${largeImgLink}" width="800" height="600">`
 )
-
 instance.show()
-
 })
 
 
