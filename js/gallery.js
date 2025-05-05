@@ -64,13 +64,9 @@ const images = [
   },
 ];
 
-const gallaryElem = document.querySelector('.gallery')
+const galleryElem = document.querySelector('.gallery')
 
-gallaryElem.addEventListener('click',(e) => {
-  e.preventDefault();
-})
-
-function imageTamplate(image){
+function imageTemplate(image){
   return `<li class="gallery-item">
     <a class="gallery-link" href="${image.original}">
       <img
@@ -84,18 +80,19 @@ function imageTamplate(image){
 
 }
 
-function imagesTamplate(images){
-  return images.map(imageTamplate).join(' ');
+function imagesTemplate(images){  imageTemplate
+  return images.map(imageTemplate).join(' ');
 }
 
-function renderGallary() {
-  const markup = imagesTamplate(images)
-  gallaryElem.innerHTML = markup;
+function renderGallery() {
+  const markup = imagesTemplate(images)
+  galleryElem.innerHTML = markup;
 }
 
-renderGallary();
+renderGallery();
 
-gallaryElem.addEventListener('click', (e) => {
+galleryElem.addEventListener('click', (e) => {
+  e.preventDefault();
   const imgElem = e.target.closest('.gallery-image');
   if (!imgElem) return;
   const largeImgLink = imgElem.dataset.source;
